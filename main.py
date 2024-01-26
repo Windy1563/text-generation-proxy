@@ -119,22 +119,10 @@ async def post_forward_request(request: Request):
     }
     request_data = await request.json()
     if request_data['max_tokens'] > 500:
-        return web.Response(headers={
+        return web.Response(status=502, headers={
             'Content-Type': 'text/json',
             'Access-Control-Allow-Origin': '*'
-        }, text=json.dumps({
-            'id': 'blocker',
-            'object': 'text_completion',
-            'created': 0,
-            'model': 'blocker',
-            'choices': [
-                {
-                    'index': 0,
-                    'finish_reason': 'stop',
-                    'text': '최대 응답 토큰수 제한(500)를 초과한 요청이 차단되었습니다.'
-                }
-            ]
-        }))
+        }, text=json.dumps({"유즈의 메시지": "최대 응답 크기는 500개를 넘을 수 없습니다. 냥~"}))
     global reqs_time, last_request
     last_request = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
