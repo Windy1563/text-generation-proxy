@@ -8,7 +8,7 @@ from aiohttp.client import _RequestContextManager
 
 async def just_request(inx):
     session = ClientSession()
-    resp = await session.get(f'http://127.0.0.1:7831/?inx={inx}', timeout=30)
+    resp = await session.get(f'http://127.0.0.1:7831/?inx={inx}')
     print(await resp.text())
     await session.close()
 
