@@ -1,1 +1,5 @@
 .idea
+/token
+requests.jsonl
+status.json
+endpoints.txt
