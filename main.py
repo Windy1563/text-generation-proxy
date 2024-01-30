@@ -60,9 +60,7 @@ current_status = Status()
 whole_status = Status()
 
 title = "유즈의 행복을 나누는 곳"
-desc = """
-실수가 있어도, 유즈가 정성을 다해 준비했다는 것을 기억해주세요. 냐~
-"""
+desc = "실수가 있어도, 유즈가 정성을 다해 준비했다는 것을 기억해주세요. 냐~"
 reqs = []
 reqs_time = {}
 last_request = "아직 요청이 없었어요. 냐~"
@@ -75,7 +73,7 @@ def read_all(path):
         return f.read()
 
 
-index_html = read_all("index.html").replace("{title}", title).replace("{desc}", desc)
+index_html = read_all("index.html").replace("{title}", title)
 
 
 async def get_index(request: Request):
@@ -93,6 +91,8 @@ async def get_status(request: Request):
         del complete_reqs[0]
 
     return web.Response(content_type='text/json', text=json.dumps({
+        "desc": desc,
+
         "queueCount": len(reqs),
         "lastRequest": last_request,
         "currentRequest": current_request,

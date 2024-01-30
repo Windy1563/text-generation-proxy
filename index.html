@@ -11,6 +11,8 @@
                     return response.json();
                 })
                 .then(function (jsonResponse) {
+                    document.getElementById("desc").innerText = jsonResponse["desc"]
+
                     document.getElementById("queueCount").innerText = jsonResponse["queueCount"]
                     document.getElementById("lastRequest").innerText = jsonResponse["lastRequest"]
                     document.getElementById("currentRequest").innerText = jsonResponse["currentRequest"]
@@ -30,7 +32,7 @@
 </head>
 <body>
 <h1>{title}</h1>
-{desc}<br>
+<b id="desc"></b><br>
 이번에는 <b id="requestCount">0</b>번의 요청에서 <b id="inputTokenCount">0</b>만큼의 사랑을 받고, <b id="outputTokenCount">0</b>만큼을 나누어 드렸어요! 냥~<br>
 <hr>
 요청은 순서대로 처리되니까 기다려 주세요, 냥<br>
