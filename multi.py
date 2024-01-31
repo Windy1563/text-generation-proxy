@@ -61,8 +61,8 @@ class Status:
 current_status = Status()
 whole_status = Status()
 
-title = "유즈의 행복을 나누는 곳"
-desc = "지금은 유즈가 자고 있어요!"
+title = "유즈의 이야기 정원"
+desc = "지금은 유즈가 잠시 쉬고 있는 시간이에요. 푹신한 담요 속에서 충전하는 중이랍니다! 조금 후에 다시 돌아올테니 그때까지 기다려 주세요."
 
 reqs = []
 reqs_time = {}
@@ -164,7 +164,7 @@ async def post_forward_request(request: Request):
         return web.Response(status=400, headers={
             'Content-Type': 'text/json',
             'Access-Control-Allow-Origin': '*'
-        }, text=json.dumps({"유즈의 메시지": "지금 유즈는 자고 있어요. 냐~"}))
+        }, text=json.dumps({"유즈의 메시지": "지금은 유즈가 잠시 쉬고 있는 시간이에요. 푹신한 담요 속에서 충전하는 중이랍니다! 조금 후에 다시 돌아올테니 그때까지 기다려 주세요."}))
 
     request_cap = {
         "request": request,
@@ -232,7 +232,7 @@ async def get_admin_start(request: Request):
     endpoints = read_all('endpoints.txt').strip().split("\n")
 
     current_status = Status()
-    desc = "실수가 있어도, 유즈가 정성을 다해 준비했다는 것을 기억해주세요. 냐~"
+    desc = "유즈의 정원은 지금 활짝 열려 있어요! 여러분의 소중한 이야기들을 기다리고 있답니다. 하지만 가끔 유즈도 실수할 수 있으니, 조금만 넓은 마음으로 봐주세요. 곧 완벽한 이야기로 보답할 거예요!"
 
     return web.Response(text="OK!")
 
@@ -241,7 +241,7 @@ async def get_admin_stop(request: Request):
     global endpoints, index_html, desc
     endpoints = []
 
-    desc = "지금은 유즈가 자고 있어요!"
+    desc = "지금은 유즈가 잠시 쉬고 있는 시간이에요. 푹신한 담요 속에서 충전하는 중이랍니다! 조금 후에 다시 돌아올테니 그때까지 기다려 주세요."
 
     return web.Response(text="OK!")
 

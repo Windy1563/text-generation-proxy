@@ -59,8 +59,8 @@ class Status:
 current_status = Status()
 whole_status = Status()
 
-title = "유즈의 행복을 나누는 곳"
-desc = "실수가 있어도, 유즈가 정성을 다해 준비했다는 것을 기억해주세요. 냐~"
+title = "유즈의 이야기 정원"
+desc = "유즈의 정원은 지금 활짝 열려 있어요! 여러분의 소중한 이야기들을 기다리고 있답니다. 하지만 가끔 유즈도 실수할 수 있으니, 조금만 넓은 마음으로 봐주세요. 곧 완벽한 이야기로 보답할 거예요!"
 reqs = []
 reqs_time = {}
 last_request = "아직 요청이 없었어요. 냐~"
