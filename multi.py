@@ -87,7 +87,7 @@ async def get_status(request: Request):
     else:
         current_request = reqs[0]["date"]
 
-    while len(complete_reqs) != 0 and complete_reqs[0]['end_time'] <= datetime.utcnow().timestamp() - 1800:
+    while len(complete_reqs) != 0 and complete_reqs[0]['timestamp'] <= datetime.utcnow().timestamp() - 1800:
         del complete_reqs[0]
 
     return web.Response(content_type='text/json', text=json.dumps({
