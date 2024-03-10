@@ -73,11 +73,11 @@ async def post_forward_request(request: Request):
         "date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     }
     request_data = await request.json()
-    if request_data['max_tokens'] > 500:
+    if request_data['max_tokens'] > 800:
         return web.Response(status=502, headers={
             'Content-Type': 'text/json',
             'Access-Control-Allow-Origin': '*'
-        }, text=json.dumps({"유즈의 메시지": "최대 응답 크기는 500개를 넘을 수 없습니다. 냥~"}))
+        }, text=json.dumps({"유즈의 메시지": "최대 응답 크기는 800개를 넘을 수 없습니다. 냥~"}))
     global reqs_time, last_request
     last_request = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
